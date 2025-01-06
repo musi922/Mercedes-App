@@ -108,11 +108,14 @@
 						<cells>
 						<Image src="{products>ProductPicUrl}" width="6rem"/>
 						<Text text="{products>ProductId}" />
-						<Text text="{products>Name}" />
+						<VBox >
+						<ObjectIdentifier title="{products>Name}" />
+						<ObjectStatus text="{products>Status}" state="{= ${products>Status} === 'In Stock'?'Success':'Error'}"></ObjectStatus>
+						</VBox>
                         <Text text="{products>SupplierName}" />
                         <Text text="{products>Category}" />
                         <RatingIndicator value="{products>Rating}" maxValue="5" />
-                        <Text text="{products>Price}" />
+                        <Text text="$ {products>Price}" />
 						</cells>
 						</ColumnListItem>
 					</items>
