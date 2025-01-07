@@ -77,7 +77,7 @@
 				{
 					"pattern": "details/{id}",
 					"name": "details",
-					"target": "main"
+					"target": "details"
 				}
 			],
 			"targets": {

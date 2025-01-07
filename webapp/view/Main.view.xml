@@ -70,7 +70,7 @@
 			</f:header>
 			<f:content>
 				<Table id="idProductsTable"
-				selectionChange="handleSelectionChange"
+				
 						sticky="HeaderToolbar,ColumnHeaders"
 						inset="false"
 						items="{products>/ProductCollection}"
@@ -107,7 +107,7 @@
 						</Column>
 					</columns>
 					<items>
-						<ColumnListItem >
+						<ColumnListItem type="Navigation" press="onProductPress">
 						<cells>
 						<Image src="{products>ProductPicUrl}" width="6rem"/>
 						<Text text="{products>ProductId}" />

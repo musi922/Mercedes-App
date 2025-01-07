@@ -5,8 +5,14 @@ sap.ui.define(["./BaseController", "sap/m/MessageBox"], function (BaseController
 		onInit(){
 			var oModel = new sap.ui.model.json.JSONModel("mockdata/products.json");
 			this.getView().setModel(oModel,"products");
-			console.log(oModel);
-			
+		},
+		onProductPress(oEvent){
+			let oContext = oEvent.getSource().getBindingContext("products");
+			let oProductId = oContext.getProperty("ProductId");
+			this.getRouter().navTo("details",{
+			id: oProductId
+		})
+
 		}
 		
 	});
