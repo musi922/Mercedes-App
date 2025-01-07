@@ -28,7 +28,11 @@
                     </HBox>
                 </uxap:heading>
                 <uxap:actions>
-                     <Button icon="sap-icon://nav-back" press="onNavBack" text="Back"/>
+                    <Button
+                        icon="sap-icon://nav-back"
+                        press="onNavBack"
+                        text="Back"
+                    />
                     <Button icon="sap-icon://search" />
                     <Button icon="sap-icon://bell" />
                     <Button icon="sap-icon://overflow" />
@@ -38,11 +42,11 @@
         </uxap:headerTitle>
         <uxap:headerContent>
             <VBox>
-                <TabContainer>
-                    <items>
-                        <TabContainerItem name="{details>/Name}" />
-                    </items>
-                </TabContainer>
+            <TabContainer id="productTabContainer" selectedItem="onTabSelect">
+    <items>
+        <TabContainerItem name="{details>/Name}" />
+    </items>
+</TabContainer>
                 <VBox class="sapUiSmallMarginBottom sapUiTinyMarginTop">
                     <Title text="{details>/Name}" />
                     <Label text="{details>/ProductId}" />

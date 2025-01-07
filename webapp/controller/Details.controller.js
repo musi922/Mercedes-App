@@ -1,10 +1,10 @@
 sap.ui.define([
     "./BaseController", 
     "sap/m/MessageBox",
-    "sap/ui/model/json/JSONModel"
-], function (BaseController, MessageBox, JSONModel) {
+    "sap/ui/model/json/JSONModel",
+    "sap/m/TabContainerItem"
+], function (BaseController, MessageBox, JSONModel, TabContainerItem) {
     "use strict";
-
     return BaseController.extend("mercedsapp.controller.Details", {
         onInit: function() {
             var oViewModel = new JSONModel({});
@@ -14,12 +14,11 @@ sap.ui.define([
         },
 
         _onRouteMatched: function(oEvent) {
-            var oArguments = oEvent.getParameter("arguments");
-            var sProductId = oArguments.ProductId;
+            var sProductId = oEvent.getParameter("arguments").ProductId;
             var oProductsModel = this.getOwnerComponent().getModel("products");
-            
             var aProducts = oProductsModel.getData().ProductCollection;
             
+            // Find the clicked product
             var oProduct = aProducts.find(function(product) {
                 return product.ProductId === sProductId;
             });
@@ -27,13 +26,37 @@ sap.ui.define([
             if (oProduct) {
                 var oViewModel = this.getView().getModel("details");
                 oViewModel.setData(oProduct);
-                oViewModel.refresh(true);
                 
-                console.log("Product found:", oProduct);
+                // Get all products with same category
+                var aCategoryProducts = aProducts.filter(function(product) {
+                    return product.Category === oProduct.Category;
+                });
+                
+                // Get the TabContainer and clear existing items
+                var oTabContainer = this.byId("productTabContainer");
+                oTabContainer.removeAllItems();
+                
+                // Add new tabs for each product in category with their ProductId
+                aCategoryProducts.forEach(function(product) {
+                    oTabContainer.addItem(new TabContainerItem({
+                        name: product.Name,
+                        key: product.ProductId,  // Add key for identification
+                        selected: product.ProductId === sProductId  // Select current product
+                    }));
+                });
+                
             } else {
                 MessageBox.error("Product not found");
-                console.log("Product not found for ID:", sProductId);
             }
+        },
+
+        onTabSelect: function(oEvent) {
+            var sSelectedProductId = oEvent.getParameter("key");
+            
+            // Navigate to the selected product
+            this.getRouter().navTo("details", {
+                ProductId: sSelectedProductId
+            }, false); 
         }
     });
 });
