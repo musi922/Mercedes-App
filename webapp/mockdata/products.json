@@ -67,7 +67,7 @@
 			"Depth": 22,
 			"Height": 3,
 			"DimUnit": "cm",
-			"Rating":4
+			"Rating":2
 		},
 		{
 			"ProductId": "HT-1010",
@@ -90,7 +90,7 @@
 			"Depth": 20,
 			"Height": 3,
 			"DimUnit": "cm",
-			"Rating":4
+			"Rating":5
 		},
 		{
 			"ProductId": "HT-1011",
