@@ -17,4 +17,8 @@
 }
 .bluees{
     color: #0064d9;
+    justify-content: space-evenly;
+}
+.hb{
+    gap: 20px;
 }

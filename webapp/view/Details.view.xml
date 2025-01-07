@@ -128,30 +128,82 @@
                 </uxap:ObjectPageSubSection>
                 </uxap:subSections>
         </uxap:ObjectPageSection>
-          <uxap:ObjectPageSection title="Payment Information">
+          <uxap:ObjectPageSection title="Reviews" titleUppercase="false">
                 <uxap:subSections>
-                    <uxap:ObjectPageSubSection>
+                    <uxap:ObjectPageSubSection >
                         <uxap:blocks>
-                            <VBox class="sapUiSmallMargin">
-                                <Title text="Main Payment Method" level="H3" class="sapUiSmallMarginBottom"/>
-                                <form:SimpleForm
-                                    layout="ResponsiveGridLayout"
-                                    editable="false"
-                                    labelSpanXL="4"
-                                    labelSpanL="4"
-                                    labelSpanM="4"
-                                    labelSpanS="12">
-									<Image width="10rem" densityAware="false" src="{img>/products/pic1}" />
-									
-                                    <Label text="Bank Transfer"/>
-                                    <Text text="Sparkasse Heinfeld, Germany"/>
-									<Label text="Amount of money"/>
-									<Text text="$20000"/>
-                                    <Text text="Account: 458784545"/>
-									<Button text="Pay Now" type="Emphasized" press="onPayPress"/>
-                                </form:SimpleForm>
-                                <Link text="See more" class="sapUiTinyMarginTop"/>
+                            <Table id="ReviewsTable" >
+                            <columns>
+                            <Column >
+                            <Text text="Rating"></Text>
+                            </Column>
+                            <Column >
+                            <Text text="Review"></Text>
+                            </Column>
+                            
+                            <Column >
+                            <Text text=""></Text>
+                            </Column>
+                            </columns>
+                            <items>
+                            <ColumnListItem >
+                        <cells>
+                            <HBox alignItems="Center" justifyContent="Inherit" class="hb">
+                            <RatingIndicator iconSize="17px" value="{details>/Rating}" maxValue="5"></RatingIndicator>
+                            <Text text="(3 of 5)"></Text>
+                            <Title text="Samuel Seychelle" class="sapUiSmallMargin"></Title>
+                            </HBox>
+                            <Text class="sapUiLargeMarginEnd" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris "></Text>
+                            <VBox >
+                            <Text text="Is Helpful (2)"></Text>
+                            <Text text="Rate as Helpful" class="bluees"></Text>
                             </VBox>
+                        </cells>
+                            </ColumnListItem>
+                            <ColumnListItem >
+                        <cells>
+                            <HBox alignItems="Center" justifyContent="Inherit" class="hb">
+                            <RatingIndicator iconSize="17px" value="{details>/Rating}" maxValue="5"></RatingIndicator>
+                            <Text text="(4 of 5)"></Text>
+                            <Title text="Albert Denis" class="sapUiSmallMargin"></Title>
+                            </HBox>
+                            <Text class="sapUiLargeMarginEnd" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris "></Text>
+                            <VBox >
+                            <Text text="Is Helpful (2)"></Text>
+                            <Text text="Rate as Helpful" class="bluees"></Text>
+                            </VBox>
+                        </cells>
+                            </ColumnListItem>
+                            <ColumnListItem >
+                        <cells>
+                            <HBox alignItems="Center" justifyContent="Inherit" class="hb">
+                            <RatingIndicator iconSize="17px" value="{details>/Rating}" maxValue="5"></RatingIndicator>
+                            <Text text="(3 of 5)"></Text>
+                            <Title text="Joshua Peterson" class="sapUiSmallMargin"></Title>
+                            </HBox>
+                            <Text class="sapUiLargeMarginEnd" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris "></Text>
+                            <VBox >
+                            <Text text="Is Helpful (2)"></Text>
+                            <Text text="Rate as Helpful" class="bluees"></Text>
+                            </VBox>
+                        </cells>
+                            </ColumnListItem>
+                            <ColumnListItem >
+                        <cells>
+                            <HBox alignItems="Center" justifyContent="Inherit" class="hb">
+                            <RatingIndicator iconSize="17px" value="{details>/Rating}" maxValue="5"></RatingIndicator>
+                            <Text text="(3 of 5)"></Text>
+                            <Title text="Water Janipher" class="sapUiSmallMargin"></Title>
+                            </HBox>
+                            <Text class="sapUiLargeMarginEnd" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris "></Text>
+                            <VBox >
+                            <Text text="Is Helpful (2)"></Text>
+                            <Text text="Rate as Helpful" class="bluees"></Text>
+                            </VBox>
+                        </cells>
+                            </ColumnListItem>
+                            </items>
+                            </Table>
                         </uxap:blocks>
                 </uxap:ObjectPageSubSection>
                 </uxap:subSections>
