@@ -7,7 +7,6 @@ sap.ui.define([
 
     return BaseController.extend("mercedsapp.controller.Details", {
         onInit: function() {
-            // Create a new JSONModel for the selected product
             var oViewModel = new JSONModel({});
             this.getView().setModel(oViewModel, "details");
             
@@ -19,16 +18,13 @@ sap.ui.define([
             var sProductId = oArguments.ProductId;
             var oProductsModel = this.getOwnerComponent().getModel("products");
             
-            // Get all products
             var aProducts = oProductsModel.getData().ProductCollection;
             
-            // Find the specific product
             var oProduct = aProducts.find(function(product) {
                 return product.ProductId === sProductId;
             });
 
             if (oProduct) {
-                // Get the existing view model and update its data
                 var oViewModel = this.getView().getModel("details");
                 oViewModel.setData(oProduct);
                 oViewModel.refresh(true);

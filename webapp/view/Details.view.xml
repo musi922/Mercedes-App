@@ -1,4 +1,5 @@
-<mvc:View xmlns:form="sap.ui.layout.form"
+<mvc:View
+    xmlns:form="sap.ui.layout.form"
     xmlns:vbm="sap.ui.vbm"
     xmlns:core="sap.ui.core"
     xmlns:smarttable="sap.ui.comp.smarttable"
@@ -11,15 +12,11 @@
     xmlns:layout="sap.ui.layout"
     height="100%"
 >
-
-    <uxap:ObjectPageLayout
-        id="ObjectPageLayout"
-    >
-        <uxap:headerTitle >
+    <uxap:ObjectPageLayout id="ObjectPageLayout">
+        <uxap:headerTitle>
             <uxap:ObjectPageDynamicHeaderTitle class="dd">
                 <uxap:heading>
-                    <HBox
-                        alignItems="Center">
+                    <HBox alignItems="Center">
                         <Avatar
                             displaySize="S"
                             class="sapUiTinyMarginEnd"
@@ -31,6 +28,7 @@
                     </HBox>
                 </uxap:heading>
                 <uxap:actions>
+                     <Button icon="sap-icon://nav-back" press="onNavBack" text="Back"/>
                     <Button icon="sap-icon://search" />
                     <Button icon="sap-icon://bell" />
                     <Button icon="sap-icon://overflow" />
@@ -79,7 +77,7 @@
                             </HBox>
                             <HBox>
                                 <Label text="Sub-Category:" />
-                                <Text text="{details>/Computer Systems}" />
+                                <Text text="{details>/MainCategory}" />
                             </HBox>
                             <HBox>
                                 <Label text="Supplier:" />
@@ -114,101 +112,178 @@
             </VBox>
         </uxap:headerContent>
         <uxap:sections>
-          <uxap:ObjectPageSection title="Product Information">
+            <uxap:ObjectPageSection title="Product Information">
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection>
                         <uxap:blocks>
                             <VBox class="sapUiSmallMargin">
-                                <Label text="Product Dimensions (Height x Width x Depth)" class="sapUiSmallMarginBottom"/>
-                                <Label text="{details>/Height} x {details>/Width} x {details>/Depth} CM"/>
-                                <Label text="Weight:"/>
-                                <Label text="{details>/WeightMeasure} {details>/WeightUnit}"></Label>
+                                <Label
+                                    text="Product Dimensions (Height x Width x Depth)"
+                                    class="sapUiSmallMarginBottom"
+                                />
+                                <Label
+                                    text="{details>/Height} x {details>/Width} x {details>/Depth} CM"
+                                />
+                                <Label text="Weight:" />
+                                <Label
+                                    text="{details>/WeightMeasure} {details>/WeightUnit}"
+                                />
                             </VBox>
                         </uxap:blocks>
-                </uxap:ObjectPageSubSection>
+                    </uxap:ObjectPageSubSection>
                 </uxap:subSections>
-        </uxap:ObjectPageSection>
-          <uxap:ObjectPageSection title="Reviews" titleUppercase="false">
+            </uxap:ObjectPageSection>
+            <uxap:ObjectPageSection
+                title="Reviews"
+                titleUppercase="false"
+            >
                 <uxap:subSections>
-                    <uxap:ObjectPageSubSection >
+                    <uxap:ObjectPageSubSection>
                         <uxap:blocks>
-                            <Table id="ReviewsTable" >
-                            <columns>
-                            <Column >
-                            <Text text="Rating"></Text>
-                            </Column>
-                            <Column >
-                            <Text text="Review"></Text>
-                            </Column>
-                            
-                            <Column >
-                            <Text text=""></Text>
-                            </Column>
-                            </columns>
-                            <items>
-                            <ColumnListItem >
-                        <cells>
-                            <HBox alignItems="Center" justifyContent="Inherit" class="hb">
-                            <RatingIndicator iconSize="17px" value="{details>/Rating}" maxValue="5"></RatingIndicator>
-                            <Text text="(3 of 5)"></Text>
-                            <Title text="Samuel Seychelle" class="sapUiSmallMargin"></Title>
-                            </HBox>
-                            <Text class="sapUiLargeMarginEnd" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris "></Text>
-                            <VBox >
-                            <Text text="Is Helpful (2)"></Text>
-                            <Text text="Rate as Helpful" class="bluees"></Text>
-                            </VBox>
-                        </cells>
-                            </ColumnListItem>
-                            <ColumnListItem >
-                        <cells>
-                            <HBox alignItems="Center" justifyContent="Inherit" class="hb">
-                            <RatingIndicator iconSize="17px" value="{details>/Rating}" maxValue="5"></RatingIndicator>
-                            <Text text="(4 of 5)"></Text>
-                            <Title text="Albert Denis" class="sapUiSmallMargin"></Title>
-                            </HBox>
-                            <Text class="sapUiLargeMarginEnd" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris "></Text>
-                            <VBox >
-                            <Text text="Is Helpful (2)"></Text>
-                            <Text text="Rate as Helpful" class="bluees"></Text>
-                            </VBox>
-                        </cells>
-                            </ColumnListItem>
-                            <ColumnListItem >
-                        <cells>
-                            <HBox alignItems="Center" justifyContent="Inherit" class="hb">
-                            <RatingIndicator iconSize="17px" value="{details>/Rating}" maxValue="5"></RatingIndicator>
-                            <Text text="(3 of 5)"></Text>
-                            <Title text="Joshua Peterson" class="sapUiSmallMargin"></Title>
-                            </HBox>
-                            <Text class="sapUiLargeMarginEnd" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris "></Text>
-                            <VBox >
-                            <Text text="Is Helpful (2)"></Text>
-                            <Text text="Rate as Helpful" class="bluees"></Text>
-                            </VBox>
-                        </cells>
-                            </ColumnListItem>
-                            <ColumnListItem >
-                        <cells>
-                            <HBox alignItems="Center" justifyContent="Inherit" class="hb">
-                            <RatingIndicator iconSize="17px" value="{details>/Rating}" maxValue="5"></RatingIndicator>
-                            <Text text="(3 of 5)"></Text>
-                            <Title text="Water Janipher" class="sapUiSmallMargin"></Title>
-                            </HBox>
-                            <Text class="sapUiLargeMarginEnd" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris "></Text>
-                            <VBox >
-                            <Text text="Is Helpful (2)"></Text>
-                            <Text text="Rate as Helpful" class="bluees"></Text>
-                            </VBox>
-                        </cells>
-                            </ColumnListItem>
-                            </items>
+                            <Table id="ReviewsTable">
+                                <columns>
+                                    <Column>
+                                        <Text text="Rating" />
+                                    </Column>
+                                    <Column>
+                                        <Text text="Review" />
+                                    </Column>
+
+                                    <Column>
+                                        <Text text="" />
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <HBox
+                                                alignItems="Center"
+                                                justifyContent="Inherit"
+                                                class="hb"
+                                            >
+                                                <RatingIndicator
+                                                    iconSize="17px"
+                                                    value="{details>/Rating}"
+                                                    maxValue="5"
+                                                />
+                                                <Text text="(3 of 5)" />
+                                                <Title
+                                                    text="Samuel Seychelle"
+                                                    class="sapUiSmallMargin"
+                                                />
+                                            </HBox>
+                                            <Text
+                                                class="sapUiLargeMarginEnd"
+                                                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris "
+                                            />
+                                            <VBox>
+                                                <Text text="Is Helpful (2)" />
+                                                <Text
+                                                    text="Rate as Helpful"
+                                                    class="bluees"
+                                                />
+                                            </VBox>
+                                        </cells>
+                                    </ColumnListItem>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <HBox
+                                                alignItems="Center"
+                                                justifyContent="Inherit"
+                                                class="hb"
+                                            >
+                                                <RatingIndicator
+                                                    iconSize="17px"
+                                                    value="{details>/Rating}"
+                                                    maxValue="5"
+                                                />
+                                                <Text text="(4 of 5)" />
+                                                <Title
+                                                    text="Albert Denis"
+                                                    class="sapUiSmallMargin"
+                                                />
+                                            </HBox>
+                                            <Text
+                                                class="sapUiLargeMarginEnd"
+                                                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris "
+                                            />
+                                            <VBox>
+                                                <Text text="Is Helpful (2)" />
+                                                <Text
+                                                    text="Rate as Helpful"
+                                                    class="bluees"
+                                                />
+                                            </VBox>
+                                        </cells>
+                                    </ColumnListItem>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <HBox
+                                                alignItems="Center"
+                                                justifyContent="Inherit"
+                                                class="hb"
+                                            >
+                                                <RatingIndicator
+                                                    iconSize="17px"
+                                                    value="{details>/Rating}"
+                                                    maxValue="5"
+                                                />
+                                                <Text text="(3 of 5)" />
+                                                <Title
+                                                    text="Joshua Peterson"
+                                                    class="sapUiSmallMargin"
+                                                />
+                                            </HBox>
+                                            <Text
+                                                class="sapUiLargeMarginEnd"
+                                                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris "
+                                            />
+                                            <VBox>
+                                                <Text text="Is Helpful (2)" />
+                                                <Text
+                                                    text="Rate as Helpful"
+                                                    class="bluees"
+                                                />
+                                            </VBox>
+                                        </cells>
+                                    </ColumnListItem>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <HBox
+                                                alignItems="Center"
+                                                justifyContent="Inherit"
+                                                class="hb"
+                                            >
+                                                <RatingIndicator
+                                                    iconSize="17px"
+                                                    value="{details>/Rating}"
+                                                    maxValue="5"
+                                                />
+                                                <Text text="(3 of 5)" />
+                                                <Title
+                                                    text="Water Janipher"
+                                                    class="sapUiSmallMargin"
+                                                />
+                                            </HBox>
+                                            <Text
+                                                class="sapUiLargeMarginEnd"
+                                                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris "
+                                            />
+                                            <VBox>
+                                                <Text text="Is Helpful (2)" />
+                                                <Text
+                                                    text="Rate as Helpful"
+                                                    class="bluees"
+                                                />
+                                            </VBox>
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
                             </Table>
                         </uxap:blocks>
-                </uxap:ObjectPageSubSection>
+                    </uxap:ObjectPageSubSection>
                 </uxap:subSections>
-        </uxap:ObjectPageSection>
-
-    </uxap:sections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
     </uxap:ObjectPageLayout>
 </mvc:View>
