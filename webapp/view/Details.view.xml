@@ -1,0 +1,10 @@
+<mvc:View xmlns:smarttable="sap.ui.comp.smarttable" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar" xmlns:uxap="sap.uxap"
+    controllerName="mercedsapp.controller.Details"
+    	xmlns:mvc="sap.ui.core.mvc"
+		xmlns="sap.m"
+		xmlns:f="sap.f"
+		xmlns:layout="sap.ui.layout"
+		height="100%">
+        <Text text="sddd"></Text>
+		
+</mvc:View>

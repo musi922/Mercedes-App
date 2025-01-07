@@ -7,8 +7,6 @@ sap.ui.define(["./BaseController", "sap/m/MessageBox"], function (BaseController
 			this.getView().setModel(oModel,"products");
 			console.log(oModel);
 			
-			
-			
 		}
 		
 	});

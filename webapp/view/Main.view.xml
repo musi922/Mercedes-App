@@ -70,11 +70,14 @@
 			</f:header>
 			<f:content>
 				<Table id="idProductsTable"
+				selectionChange="handleSelectionChange"
 						sticky="HeaderToolbar,ColumnHeaders"
 						inset="false"
 						items="{products>/ProductCollection}"
 					   class="sapFDynamicPageAlignContent"
-					   width="auto" growing="true" growingScrollToLoad="true" growingThreshold="20" mode="MultiSelect">
+					   width="auto" growing="true" growingScrollToLoad="true" growingThreshold="20" mode="MultiSelect"
+					   
+					   >
 					<headerToolbar>
 						<Toolbar>
 							<Title text="{=${products>/ProductCollection}.length>0?'Products (' + ${products>/ProductCollection}.length + ')' : 'Products' }" level="H2"/>
@@ -109,7 +112,7 @@
 						<Image src="{products>ProductPicUrl}" width="6rem"/>
 						<Text text="{products>ProductId}" />
 						<VBox >
-						<ObjectIdentifier title="{products>Name}" />
+						<ObjectIdentifier title="{products>Name}"/>
 						<ObjectStatus text="{products>Status}" state="{= ${products>Status} === 'In Stock'?'Success':'Error'}"></ObjectStatus>
 						</VBox>
                         <Text text="{products>SupplierName}" />
