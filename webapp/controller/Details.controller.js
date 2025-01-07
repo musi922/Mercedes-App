@@ -18,7 +18,6 @@ sap.ui.define([
             var oProductsModel = this.getOwnerComponent().getModel("products");
             var aProducts = oProductsModel.getData().ProductCollection;
             
-            // Find the clicked product
             var oProduct = aProducts.find(function(product) {
                 return product.ProductId === sProductId;
             });
@@ -27,21 +26,18 @@ sap.ui.define([
                 var oViewModel = this.getView().getModel("details");
                 oViewModel.setData(oProduct);
                 
-                // Get all products with same category
                 var aCategoryProducts = aProducts.filter(function(product) {
                     return product.Category === oProduct.Category;
                 });
                 
-                // Get the TabContainer and clear existing items
                 var oTabContainer = this.byId("productTabContainer");
                 oTabContainer.removeAllItems();
                 
-                // Add new tabs for each product in category with their ProductId
                 aCategoryProducts.forEach(function(product) {
                     oTabContainer.addItem(new TabContainerItem({
                         name: product.Name,
-                        key: product.ProductId,  // Add key for identification
-                        selected: product.ProductId === sProductId  // Select current product
+                        key: product.ProductId,  
+                        selected: product.ProductId === sProductId 
                     }));
                 });
                 
@@ -53,7 +49,6 @@ sap.ui.define([
         onTabSelect: function(oEvent) {
             var sSelectedProductId = oEvent.getParameter("key");
             
-            // Navigate to the selected product
             this.getRouter().navTo("details", {
                 ProductId: sSelectedProductId
             }, false); 
