@@ -3,14 +3,13 @@ sap.ui.define(["./BaseController", "sap/m/MessageBox"], function (BaseController
 
 	return BaseController.extend("mercedsapp.controller.Main", {
 		onInit(){
-			var oModel = new sap.ui.model.json.JSONModel("mockdata/products.json");
-			this.getView().setModel(oModel,"products");
+			var oModel = this.getOwnerComponent().getModel("products");
 		},
 		onProductPress(oEvent){
 			let oContext = oEvent.getSource().getBindingContext("products");
 			let oProductId = oContext.getProperty("ProductId");
 			this.getRouter().navTo("details",{
-			id: oProductId
+			ProductId: oProductId
 		})
 
 		}

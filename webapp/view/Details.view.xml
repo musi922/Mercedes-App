@@ -1,10 +1,129 @@
-<mvc:View xmlns:smarttable="sap.ui.comp.smarttable" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar" xmlns:uxap="sap.uxap"
+<mvc:View
+    xmlns:vbm="sap.ui.vbm"
+    xmlns:core="sap.ui.core"
+    xmlns:smarttable="sap.ui.comp.smarttable"
+    xmlns:smartfilterbar="sap.ui.comp.smartfilterbar"
+    xmlns:uxap="sap.uxap"
     controllerName="mercedsapp.controller.Details"
-    	xmlns:mvc="sap.ui.core.mvc"
-		xmlns="sap.m"
-		xmlns:f="sap.f"
-		xmlns:layout="sap.ui.layout"
-		height="100%">
-        <Text text="sddd"></Text>
-		
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:layout="sap.ui.layout"
+    height="100%"
+>
+<Page showNavButton="true" navButtonPress="onNavBack">
+<customHeader>
+
+</customHeader>
+    <uxap:ObjectPageLayout
+        id="ObjectPageLayout"
+        showTitleInHeaderContent="false"
+        alwaysShowContentHeader="true"
+        preserveHeaderStateOnScroll="false"
+        headerContentPinned="true"
+        isChildPage="false"
+        upperCaseAnchorBar="false"
+    >
+        <uxap:headerTitle >
+            <uxap:ObjectPageDynamicHeaderTitle>
+                <uxap:heading>
+                    <HBox
+                        alignItems="Center"
+                        class="sapUiSmallMarginBottom"
+                    >
+                        <Avatar
+                            displaySize="S"
+                            class="sapUiTinyMarginEnd"
+                        />
+                        <Title
+                            text="Manage Product"
+                            wrapping="true"
+                        />
+                    </HBox>
+                </uxap:heading>
+                <uxap:actions>
+                    <Button icon="sap-icon://search" />
+                    <Button icon="sap-icon://bell" />
+                    <Button icon="sap-icon://overflow" />
+                    <Button icon="sap-icon://grid" />
+                </uxap:actions>
+            </uxap:ObjectPageDynamicHeaderTitle>
+        </uxap:headerTitle>
+        <uxap:headerContent>
+            <VBox>
+                <TabContainer>
+                    <items>
+                        <TabContainerItem name="{details>/Name}" />
+                    </items>
+                </TabContainer>
+                <VBox class="sapUiSmallMarginBottom sapUiTinyMarginTop">
+                    <Title text="{details>/Name}" />
+                    <Label text="{details>/ProductId}" />
+                </VBox>
+                <layout:HorizontalLayout>
+                    <HBox class="horizonta">
+                        <Image
+                            src="https://sdk.openui5.org/test-resources/sap/ui/documentation/sdk/images/HT-1000.jpg"
+                            width="4rem"
+                        />
+                        <VBox class="sapUiSmallMarginEnd">
+                            <Label text="Price" />
+                            <ObjectNumber
+                                number="{details>/Price}"
+                                unit="USD"
+                                class="price"
+                            />
+                        </VBox>
+                        <VBox class="sapUiSmallMarginEnd">
+                            <Label text="Availability" />
+                            <ObjectStatus
+                                text="{details>/Status}"
+                                state="{= 'In Stock' === 'In Stock' ? 'Success' : 'Error'}"
+                                class="price"
+                            />
+                        </VBox>
+                        <VBox class="sapUiSmallMarginEnd">
+                            <Label text="General Information" />
+                            <HBox>
+                                <Label text="Category:" />
+                                <Text text="{details>/Category}" />
+                            </HBox>
+                            <HBox>
+                                <Label text="Sub-Category:" />
+                                <Text text="{details>/Computer Systems}" />
+                            </HBox>
+                            <HBox>
+                                <Label text="Supplier:" />
+                                <Text
+                                    text="{details>/SupplierName}"
+                                    class="bluees"
+                                />
+                            </HBox>
+                        </VBox>
+
+                        <VBox class="sapUiSmallMarginEnd">
+                            <Label text="Description" />
+                            <Text
+                                width="200px"
+                                text="{details>/Description}"
+                            />
+                        </VBox>
+                        <VBox>
+                            <Label text="Rating" />
+                            <Text text="Average Rating" />
+                            <RatingIndicator
+                                value="{details>/Rating}"
+                                maxValue="5"
+                            />
+                            <Text
+                                text="Out of 5 ratings"
+                                class="bluees"
+                            />
+                        </VBox>
+                    </HBox>
+                </layout:HorizontalLayout>
+            </VBox>
+        </uxap:headerContent>
+    </uxap:ObjectPageLayout>
+    </Page>
 </mvc:View>

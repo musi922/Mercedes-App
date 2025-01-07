@@ -14,7 +14,10 @@ sap.ui.define(["sap/ui/core/UIComponent", "sap/ui/Device", "./model/models"], fu
 
 			// create the views based on the url/hash
 			this.getRouter().initialize();
+			var oModel = new sap.ui.model.json.JSONModel("mockdata/products.json");
+			this.setModel(oModel,"products");
 		},
+		
 		/**
 		 * This method can be called to determine whether the sapUiSizeCompact or sapUiSizeCozy
 		 * design mode class should be set, which influences the size appearance of some controls.

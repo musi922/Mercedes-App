@@ -2,3 +2,18 @@
     padding: 20px;
    height: 30vh;
 }
+.horizonta{
+    margin-top: 20px;
+    color: red;
+    gap: 100px;
+    margin-bottom: 4px;
+}
+.price{
+
+    font-size: 20px;
+    color: rgb(78, 78, 78);
+    
+}
+.bluees{
+    color: #0064d9;
+}
