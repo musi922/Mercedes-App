@@ -1,4 +1,4 @@
-<mvc:View
+<mvc:View xmlns:form="sap.ui.layout.form"
     xmlns:vbm="sap.ui.vbm"
     xmlns:core="sap.ui.core"
     xmlns:smarttable="sap.ui.comp.smarttable"
@@ -113,5 +113,50 @@
                 </layout:HorizontalLayout>
             </VBox>
         </uxap:headerContent>
+        <uxap:sections>
+          <uxap:ObjectPageSection title="Product Information">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection>
+                        <uxap:blocks>
+                            <VBox class="sapUiSmallMargin">
+                                <Label text="Product Dimensions (Height x Width x Depth)" class="sapUiSmallMarginBottom"/>
+                                <Label text="{details>/Height} x {details>/Width} x {details>/Depth} CM"/>
+                                <Label text="Weight:"/>
+                                <Label text="{details>/WeightMeasure} {details>/WeightUnit}"></Label>
+                            </VBox>
+                        </uxap:blocks>
+                </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+        </uxap:ObjectPageSection>
+          <uxap:ObjectPageSection title="Payment Information">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection>
+                        <uxap:blocks>
+                            <VBox class="sapUiSmallMargin">
+                                <Title text="Main Payment Method" level="H3" class="sapUiSmallMarginBottom"/>
+                                <form:SimpleForm
+                                    layout="ResponsiveGridLayout"
+                                    editable="false"
+                                    labelSpanXL="4"
+                                    labelSpanL="4"
+                                    labelSpanM="4"
+                                    labelSpanS="12">
+									<Image width="10rem" densityAware="false" src="{img>/products/pic1}" />
+									
+                                    <Label text="Bank Transfer"/>
+                                    <Text text="Sparkasse Heinfeld, Germany"/>
+									<Label text="Amount of money"/>
+									<Text text="$20000"/>
+                                    <Text text="Account: 458784545"/>
+									<Button text="Pay Now" type="Emphasized" press="onPayPress"/>
+                                </form:SimpleForm>
+                                <Link text="See more" class="sapUiTinyMarginTop"/>
+                            </VBox>
+                        </uxap:blocks>
+                </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+        </uxap:ObjectPageSection>
+
+    </uxap:sections>
     </uxap:ObjectPageLayout>
 </mvc:View>
