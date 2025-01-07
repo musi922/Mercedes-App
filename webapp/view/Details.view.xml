@@ -11,26 +11,15 @@
     xmlns:layout="sap.ui.layout"
     height="100%"
 >
-<Page showNavButton="true" navButtonPress="onNavBack">
-<customHeader>
 
-</customHeader>
     <uxap:ObjectPageLayout
         id="ObjectPageLayout"
-        showTitleInHeaderContent="false"
-        alwaysShowContentHeader="true"
-        preserveHeaderStateOnScroll="false"
-        headerContentPinned="true"
-        isChildPage="false"
-        upperCaseAnchorBar="false"
     >
         <uxap:headerTitle >
-            <uxap:ObjectPageDynamicHeaderTitle>
+            <uxap:ObjectPageDynamicHeaderTitle class="dd">
                 <uxap:heading>
                     <HBox
-                        alignItems="Center"
-                        class="sapUiSmallMarginBottom"
-                    >
+                        alignItems="Center">
                         <Avatar
                             displaySize="S"
                             class="sapUiTinyMarginEnd"
@@ -125,5 +114,4 @@
             </VBox>
         </uxap:headerContent>
     </uxap:ObjectPageLayout>
-    </Page>
 </mvc:View>
