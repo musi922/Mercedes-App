@@ -56,7 +56,7 @@
                             width="4rem"
                         />
                         <VBox class="sapUiSmallMarginEnd">
-                            <Label text="Price" />
+                            <Label text="Price:" />
                             <ObjectNumber
                                 number="{details>/Price}"
                                 unit="USD"
@@ -64,15 +64,15 @@
                             />
                         </VBox>
                         <VBox class="sapUiSmallMarginEnd">
-                            <Label text="Availability" />
+                            <Label text="Availability:" />
                             <ObjectStatus
                                 text="{details>/Status}"
-                                state="{= 'In Stock' === 'In Stock' ? 'Success' : 'Error'}"
+                                state="{= ${details>/Status} === 'In Stock' ? 'Success' : 'Error'}"
                                 class="price"
                             />
                         </VBox>
                         <VBox class="sapUiSmallMarginEnd">
-                            <Label text="General Information" />
+                            <Label text="General Information:" />
                             <HBox>
                                 <Label text="Category:" />
                                 <Text text="{details>/Category}" />
@@ -91,14 +91,14 @@
                         </VBox>
 
                         <VBox class="sapUiSmallMarginEnd">
-                            <Label text="Description" />
+                            <Label text="Description:" />
                             <Text
                                 width="200px"
                                 text="{details>/Description}"
                             />
                         </VBox>
                         <VBox>
-                            <Label text="Rating" />
+                            <Label text="Rating:" />
                             <Text text="Average Rating" />
                             <RatingIndicator
                                 value="{details>/Rating}"
