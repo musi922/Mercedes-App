@@ -115,6 +115,7 @@
                                 class="bluees"
                             />
                         </VBox>
+                        <Button text="Add To CART" type="Emphasized" press="onAddToCart"/>
                     </HBox>
                 </layout:HorizontalLayout>
             </VBox>
@@ -294,4 +295,13 @@
             </uxap:ObjectPageSection>
         </uxap:sections>
     </uxap:ObjectPageLayout>
+    <Dialog id="addToCart" title="Confirm">
+    <Text text="Do You Want To Add To Cart" class="sapUiSmallMargin"/>
+    <beginButton>
+    <Button text="Add" type="Emphasized" />
+    </beginButton>
+    <endButton>
+        <Button text="Cancel" press="onCancelDialog"/>
+    </endButton>
+    </Dialog>
 </mvc:View>

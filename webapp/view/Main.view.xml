@@ -18,9 +18,10 @@
 					</f:expandedContent>
 					<f:actions>
 						<Button
-								text="Edit"
-								type="Emphasized"
-								press="toggleAreaPriority"/>
+								text="CART"
+								type="Accept"
+								class="sapUiLargePaddingBottom"
+								press="OnNavigateToCart"/>
 						<Button
 								text="Delete"
 								type="Transparent"/>

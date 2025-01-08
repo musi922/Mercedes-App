@@ -52,6 +52,12 @@ sap.ui.define([
             this.getRouter().navTo("details", {
                 ProductId: sSelectedProductId
             }, false); 
+        },
+        onAddToCart(){
+            this.byId("addToCart").open();
+        },
+        onCancelDialog(){
+            this.byId("addToCart").close();
         }
     });
 });

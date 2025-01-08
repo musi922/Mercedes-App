@@ -1,0 +1,16 @@
+<mvc:View xmlns:smarttable="sap.ui.comp.smarttable" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar" xmlns:uxap="sap.uxap"
+    controllerName="mercedsapp.controller.Cart"
+    	xmlns:mvc="sap.ui.core.mvc"
+		xmlns="sap.m"
+		xmlns:f="sap.f"
+		xmlns:layout="sap.ui.layout"
+		height="100%">
+		<Page id="cartPage" showNavButton="true" title="Your Cart Page" navButtonPress="onNavBack">
+        
+        <content>
+        <List headerText="Products" binding="">
+        <StandardListItem title="{Name}" icon="{ProductPicUrl}"  description="{ProductId}"/>
+        </List>
+        </content>
+        </Page>
+</mvc:View>

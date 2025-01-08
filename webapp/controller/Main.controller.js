@@ -12,6 +12,9 @@ sap.ui.define(["./BaseController", "sap/m/MessageBox"], function (BaseController
 			ProductId: oProductId
 		})
 
+		},
+		OnNavigateToCart(){
+			this.getRouter().navTo("cart");
 		}
 		
 	});
