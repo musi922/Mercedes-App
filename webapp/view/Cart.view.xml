@@ -8,8 +8,8 @@
 		<Page id="cartPage" showNavButton="true" title="Your Cart Page" navButtonPress="onNavBack">
         
         <content>
-        <List headerText="Products" binding="">
-        <StandardListItem title="{Name}" icon="{ProductPicUrl}"  description="{ProductId}"/>
+        <List headerText="Products" items="{cart>/cartItems}" noDataText="Your Cart Is Empty">
+        <StandardListItem title="{cart>Name}" icon="{cart>ProductPicUrl}"  description="{cart>ProductId}"/>
         </List>
         </content>
         </Page>

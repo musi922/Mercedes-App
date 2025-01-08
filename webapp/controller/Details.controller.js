@@ -58,6 +58,28 @@ sap.ui.define([
         },
         onCancelDialog(){
             this.byId("addToCart").close();
+        },
+        onConfirmAddToCart(){
+            let oCartModel = this.getOwnerComponent().getModel("cart");
+            let oDetailsModel = this.getView().getModel("details");
+            let oProductsModel = this.getOwnerComponent().getModel("products");
+
+            let currentProduct = oDetailsModel.getData();
+            let cartItems = oCartModel.getProperty("/cartItems");
+
+            cartItems.push(currentProduct);
+            oCartModel.setProperty("/cartItems", cartItems);
+
+            let products = oProductsModel.getProperty("/ProductCollection");
+            let index = products.findIndex(product => product.ProductId === currentProduct.ProductId);
+            if (index !== -1) {
+                products.splice(index, 1);
+                oProductsModel.setProperty("/ProductCollection", products);
+            }
+
+            this.byId("addToCart").close();
+            MessageBox.success("Product added to cart");
+            this.getRouter().navTo("cart");
         }
     });
 });

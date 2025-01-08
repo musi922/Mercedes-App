@@ -298,7 +298,7 @@
     <Dialog id="addToCart" title="Confirm">
     <Text text="Do You Want To Add To Cart" class="sapUiSmallMargin"/>
     <beginButton>
-    <Button text="Add" type="Emphasized" />
+    <Button text="Add" type="Emphasized" press="onConfirmAddToCart"/>
     </beginButton>
     <endButton>
         <Button text="Cancel" press="onCancelDialog"/>
