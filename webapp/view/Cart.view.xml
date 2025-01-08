@@ -15,7 +15,7 @@
         <ObjectAttribute text="This is the list of your shopping cart"></ObjectAttribute>
         </attributes>
         </ObjectHeader>
-        <List headerText="Items" mode="Delete" items="{cart>/cartItems}" noDataText="Your Cart is Empty" enableBusyIndicator="true">
+        <List headerText="Items" mode="Delete" delete="handleDelete" items="{cart>/cartItems}" noDataText="Your Cart is Empty" enableBusyIndicator="true">
         <StandardListItem title="{cart>Name}" icon="{cart>ProductPicUrl}" description="{cart>Description}" info="{cart>Price} {cart>CurrencyCode}"></StandardListItem>
         </List>
         </WizardStep>

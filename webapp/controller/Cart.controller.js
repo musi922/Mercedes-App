@@ -9,6 +9,9 @@ sap.ui.define([
         onInit: function() {
            
         },
+        handleDelete(){
+            
+        }
 
         
     });
