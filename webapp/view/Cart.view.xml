@@ -5,12 +5,22 @@
 		xmlns:f="sap.f"
 		xmlns:layout="sap.ui.layout"
 		height="100%">
-		<Page id="cartPage" showNavButton="true" title="Your Cart Page" navButtonPress="onNavBack">
+		<Page id="cartPage" showNavButton="true"  title="Your Cart Page" navButtonPress="onNavBack">
         
         <content>
-        <List headerText="Products" items="{cart>/cartItems}" noDataText="Your Cart Is Empty">
-        <StandardListItem title="{cart>Name}" icon="{cart>ProductPicUrl}"  description="{cart>ProductId}"/>
-        </List>
+        <Wizard id="wizardContentPage" complete="completedHandler" enableBranching="true">
+        <WizardStep title="Shopping Cart Contents" icon="sap-icon://cart" id="ContentsStep">
+        <ObjectHeader title="List Of Your Shoppings">
+        <attributes>
+        <ObjectAttribute text="This is the list of your shopping cart"></ObjectAttribute>
+        </attributes>
+        </ObjectHeader>
+        </WizardStep>
+        
+        </Wizard>
+        <!-- <List headerText="Products" items="{cart>/cartItems}" noDataText="Your Cart Is Empty" mode="Delete">
+        <StandardListItem title="{cart>Name}" icon="{cart>ProductPicUrl}"  description="{cart>ProductId}" counter="{cart>Price}"/>
+        </List> -->
         </content>
         </Page>
 </mvc:View>
