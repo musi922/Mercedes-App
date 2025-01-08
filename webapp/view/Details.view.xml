@@ -12,7 +12,7 @@
     xmlns:layout="sap.ui.layout"
     height="100%"
 >
-    <uxap:ObjectPageLayout id="ObjectPageLayout">
+    <uxap:ObjectPageLayout id="ObjectPageLayout" class="ObjectPageLayout">
         <uxap:headerTitle>
             <uxap:ObjectPageDynamicHeaderTitle class="dd">
                 <uxap:heading>
@@ -22,8 +22,9 @@
                             class="sapUiTinyMarginEnd"
                         />
                         <Title
-                            text="Manage Product"
+                            text="Product Details"
                             wrapping="true"
+                            class="detailsProduct"
                         />
                     </HBox>
                 </uxap:heading>
@@ -42,11 +43,14 @@
         </uxap:headerTitle>
         <uxap:headerContent>
             <VBox>
-            <TabContainer id="productTabContainer" selectedItem="onTabSelect">
-    <items>
-        <TabContainerItem name="{details>/Name}" />
-    </items>
-</TabContainer>
+                <TabContainer
+                    id="productTabContainer"
+                    selectedItem="onTabSelect"
+                >
+                    <items>
+                        <TabContainerItem name="{details>/Name}" />
+                    </items>
+                </TabContainer>
                 <VBox class="sapUiSmallMarginBottom sapUiTinyMarginTop">
                     <Title text="{details>/Name}" />
                     <Label text="{details>/ProductId}" />

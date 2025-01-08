@@ -9,7 +9,8 @@
 			<f:title>
 				<f:DynamicPageTitle>
 					<f:heading>
-						<Title text="Manage Products"/>
+						<Title text="Manage Products" class="manageProduct"
+/>
 					</f:heading>
 					
 					<f:expandedContent>
@@ -74,7 +75,7 @@
 						sticky="HeaderToolbar,ColumnHeaders"
 						inset="false"
 						items="{products>/ProductCollection}"
-					   class="sapFDynamicPageAlignContent"
+					   class="sapFDynamicPageAlignContent ProductsTable"
 					   width="auto" growing="true" growingScrollToLoad="true" growingThreshold="20" mode="MultiSelect"
 					   
 					   >
@@ -107,7 +108,7 @@
 						</Column>
 					</columns>
 					<items>
-						<ColumnListItem type="Navigation" press="onProductPress">
+						<ColumnListItem type="Navigation" press="onProductPress" class="columnList">
 						<cells>
 						<Image src="{products>ProductPicUrl}" width="6rem"/>
 						<Text text="{products>ProductId}" />
