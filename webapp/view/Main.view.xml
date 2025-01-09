@@ -75,14 +75,14 @@
 				
 						sticky="HeaderToolbar,ColumnHeaders"
 						inset="false"
-						items="{products>/ProductCollection}"
+						items="{products>/Products}"
 					   class="sapFDynamicPageAlignContent ProductsTable"
 					   width="auto" growing="true" growingScrollToLoad="true" growingThreshold="20" mode="MultiSelect"
 					   
 					   >
 					<headerToolbar>
 						<Toolbar>
-							<Title text="{=${products>/ProductCollection}.length>0?'Products (' + ${products>/ProductCollection}.length + ')' : 'Products' }" level="H2"/>
+							<Title text="{=${products>/Products}.length>0?'Products (' + ${products>/Products}.length + ')' : 'Products' }" level="H2"/>
 						</Toolbar>
 					</headerToolbar>
 					<columns>
@@ -111,16 +111,16 @@
 					<items>
 						<ColumnListItem type="Navigation" press="onProductPress" class="columnList">
 						<cells>
-						<Image src="{products>ProductPicUrl}" width="6rem"/>
+						<Image src="{products>productPicUrl}" width="6rem"/>
 						<Text text="{products>ProductId}" />
 						<VBox >
-						<ObjectIdentifier title="{products>Name}"/>
-						<ObjectStatus text="{products>Status}" state="{= ${products>Status} === 'In Stock'?'Success':'Error'}"></ObjectStatus>
+						<ObjectIdentifier title="{products>name}"/>
+						<ObjectStatus text="{products>status}" state="{= ${products>status} === 'In Stock'?'Success':'Error'}"></ObjectStatus>
 						</VBox>
-                        <Text text="{products>SupplierName}" />
-                        <Text text="{products>Category}" />
-                        <RatingIndicator value="{products>Rating}" maxValue="5" />
-                        <Text text="$ {products>Price}" />
+                        <Text text="{products>supplierName}" />
+                        <Text text="{products>category}" />
+                        <RatingIndicator value="{products>rating}" maxValue="5" />
+                        <Text text="$ {products>price}" />
 						</cells>
 						</ColumnListItem>
 					</items>
