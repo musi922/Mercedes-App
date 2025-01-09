@@ -22,7 +22,7 @@
                             class="sapUiTinyMarginEnd"
                         />
                         <Title
-                            text="Product Details"
+                            text="{name}"
                             wrapping="true"
                             class="detailsProduct"
                         />
@@ -47,24 +47,24 @@
                     id="productTabContainer"
                     selectedItem="onTabSelect"
                 >
-                    <items>
-                        <TabContainerItem name="{details>/Name}" />
-                    </items>
+                     <items>
+        <TabContainerItem name="{name}" />
+    </items>
                 </TabContainer>
                 <VBox class="sapUiSmallMarginBottom sapUiTinyMarginTop">
-                    <Title text="{details>/Name}" />
-                    <Label text="{details>/ProductId}" />
+                    <Title text="{name}" />
+                    <Label text="{ProductId}" />
                 </VBox>
                 <layout:HorizontalLayout>
                     <HBox class="horizonta">
                         <Image
-                            src="{details>/ProductPicUrl}"
+                            src="{productPicUrl}"
                             width="4rem"
                         />
                         <VBox class="sapUiSmallMarginEnd">
                             <Label text="Price:" />
                             <ObjectNumber
-                                number="{details>/Price}"
+                                number="{price}"
                                 unit="USD"
                                 class="price"
                             />
@@ -72,8 +72,8 @@
                         <VBox class="sapUiSmallMarginEnd">
                             <Label text="Availability:" />
                             <ObjectStatus
-                                text="{details>/Status}"
-                                state="{= ${details>/Status} === 'In Stock' ? 'Success' : 'Error'}"
+                                text="{status}"
+                                state="{= ${status} === 'In Stock' ? 'Success' : 'Error'}"
                                 class="price"
                             />
                         </VBox>
@@ -81,16 +81,16 @@
                             <Label text="General Information:" />
                             <HBox>
                                 <Label text="Category:" />
-                                <Text text="{details>/Category}" />
+                                <Text text="{category}" />
                             </HBox>
                             <HBox>
                                 <Label text="Sub-Category:" />
-                                <Text text="{details>/MainCategory}" />
+                                <Text text="{mainCategory}" />
                             </HBox>
                             <HBox>
                                 <Label text="Supplier:" />
                                 <Text
-                                    text="{details>/SupplierName}"
+                                    text="{supplierName}"
                                     class="bluees"
                                 />
                             </HBox>
@@ -100,14 +100,14 @@
                             <Label text="Description:" />
                             <Text
                                 width="200px"
-                                text="{details>/Description}"
+                                text="{description}"
                             />
                         </VBox>
                         <VBox>
                             <Label text="Rating:" />
                             <Text text="Average Rating" />
                             <RatingIndicator
-                                value="{details>/Rating}"
+                                value="{rating}"
                                 maxValue="5"
                             />
                             <Text
@@ -131,11 +131,11 @@
                                     class="sapUiSmallMarginBottom"
                                 />
                                 <Label
-                                    text="{details>/Height} x {details>/Width} x {details>/Depth} CM"
+                                    text="{height} x {width} x {depth} CM"
                                 />
                                 <Label text="Weight:" />
                                 <Label
-                                    text="{details>/WeightMeasure} {details>/WeightUnit}"
+                                    text="{weightMeasure} {weightUnit}"
                                 />
                             </VBox>
                         </uxap:blocks>
@@ -172,7 +172,7 @@
                                             >
                                                 <RatingIndicator
                                                     iconSize="17px"
-                                                    value="{details>/Rating}"
+                                                    value="{rating}"
                                                     maxValue="5"
                                                 />
                                                 <Text text="(3 of 5)" />
@@ -203,7 +203,7 @@
                                             >
                                                 <RatingIndicator
                                                     iconSize="17px"
-                                                    value="{details>/Rating}"
+                                                    value="{rating}"
                                                     maxValue="5"
                                                 />
                                                 <Text text="(4 of 5)" />
@@ -234,7 +234,7 @@
                                             >
                                                 <RatingIndicator
                                                     iconSize="17px"
-                                                    value="{details>/Rating}"
+                                                    value="{rating}"
                                                     maxValue="5"
                                                 />
                                                 <Text text="(3 of 5)" />
@@ -265,7 +265,7 @@
                                             >
                                                 <RatingIndicator
                                                     iconSize="17px"
-                                                    value="{details>/Rating}"
+                                                    value="{rating}"
                                                     maxValue="5"
                                                 />
                                                 <Text text="(3 of 5)" />

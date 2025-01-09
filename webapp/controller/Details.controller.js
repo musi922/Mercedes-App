@@ -1,48 +1,38 @@
 sap.ui.define([
-    "./BaseController", 
+    "./BaseController",
     "sap/m/MessageBox",
-    "sap/ui/model/json/JSONModel",
-    "sap/m/TabContainerItem"
-], function (BaseController, MessageBox, JSONModel, TabContainerItem) {
+    "sap/m/TabContainerItem",
+    "sap/ui/model/odata/v4/ODataModel"
+], function (BaseController, MessageBox, TabContainerItem, ODataModel) {
     "use strict";
     return BaseController.extend("mercedsapp.controller.Details", {
         onInit: function() {
-            var oViewModel = new JSONModel({});
-            this.getView().setModel(oViewModel, "details");
+            const oViewModel = new ODataModel({
+                serviceUrl: "http://localhost:4000/odata/",
+                synchronizationMode: "None"
+            });
             
+            this.getView().setModel(oViewModel);
             this.getRouter().getRoute("details").attachPatternMatched(this._onRouteMatched, this);
         },
 
-        _onRouteMatched: function(oEvent) {
-            var sProductId = oEvent.getParameter("arguments").ProductId;
-            var oProductsModel = this.getOwnerComponent().getModel("products");
-            var aProducts = oProductsModel.getData().ProductCollection;
-            
-            var oProduct = aProducts.find(function(product) {
-                return product.ProductId === sProductId;
-            });
+        _onRouteMatched: async function(oEvent) {
+            try {
+                const sProductId = oEvent.getParameter("arguments").ProductId;
+                
+                this.getView().bindElement({
+                    path: `/Products('${sProductId}')`,
+                });
 
-            if (oProduct) {
-                var oViewModel = this.getView().getModel("details");
-                oViewModel.setData(oProduct);
-                
-                var aCategoryProducts = aProducts.filter(function(product) {
-                    return product.Category === oProduct.Category;
-                });
-                
-                var oTabContainer = this.byId("productTabContainer");
-                oTabContainer.removeAllItems();
-                
-                aCategoryProducts.forEach(function(product) {
-                    oTabContainer.addItem(new TabContainerItem({
-                        name: product.Name,
-                        key: product.ProductId,  
-                        selected: product.ProductId === sProductId 
-                    }));
-                });
-                
-            } else {
-                MessageBox.error("Product not found");
+                const oModel = this.getView().getModel();
+                const oContext = oModel.bindList("/Products").getContexts();
+                console.log(oContext);
+
+              
+
+            } catch (oError) {
+                console.error("Error:", oError);
+                MessageBox.error("Failed to load data");
             }
         },
 

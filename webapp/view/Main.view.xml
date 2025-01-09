@@ -82,7 +82,7 @@
 					   >
 					<headerToolbar>
 						<Toolbar>
-							<Title text="{=${products>/Products}.length>0?'Products (' + ${products>/Products}.length + ')' : 'Products' }" level="H2"/>
+							<Title text="Products" level="H2"/>
 						</Toolbar>
 					</headerToolbar>
 					<columns>
