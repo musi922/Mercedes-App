@@ -19,6 +19,9 @@ sap.ui.define([
             });
             this.getView().setModel(oCartModel, "cart");
             
+            this.getRouter().getRoute("cart").attachPatternMatched(this._onRouteMatched, this);
+        },
+        _onRouteMatched: function() {
             this._loadCartItems();
         },
 

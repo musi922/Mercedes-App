@@ -63,7 +63,7 @@ sap.ui.define([
                 MessageBox.success("Product added to cart");
                 
                 
-                this.getRouter().navTo("cart");
+                this.getRouter().navTo("cart",{},true);
                 //refresh the cart page
 
             } catch (error) {
