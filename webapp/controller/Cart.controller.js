@@ -39,7 +39,13 @@ sap.ui.define([
                 console.error(error);
             }
         },
-			handleDelete: function () {},
-		});
-	}
-);
+        handleDelete(oEvent) {
+            
+        },
+
+        onNavBack: function() {
+            this.getRouter().navTo("main");
+        }
+	});
+
+})

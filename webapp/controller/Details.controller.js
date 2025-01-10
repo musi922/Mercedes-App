@@ -49,8 +49,27 @@ sap.ui.define([
         onCancelDialog(){
             this.byId("addToCart").close();
         },
-        onConfirmAddToCart(){
-            
+        onConfirmAddToCart: async function() {
+            try {
+                const oModel = this.getView().getModel();
+                const oContext = this.getView().getBindingContext();
+                const sProductId = oContext.getProperty("ProductId");
+
+                await oModel.bindContext("/addToCart(...)")
+                    .setParameter("ProductId", sProductId)
+                    .execute();
+
+                this.byId("addToCart").close();
+                MessageBox.success("Product added to cart");
+                
+                
+                this.getRouter().navTo("cart");
+                //refresh the cart page
+
+            } catch (error) {
+                MessageBox.error("Failed to add product to cart");
+                console.error(error);
+            }
         }
     });
 });

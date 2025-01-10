@@ -14,8 +14,14 @@ sap.ui.define(["./BaseController", "sap/m/MessageBox",
             this.getView().setModel(oModel,"products");
 			console.log(oModel);
 			
+			this._applyProductFilter();
+
 
 		},
+		_applyProductFilter: function() {
+            
+        },
+
 		onProductPress(oEvent){
 			let oContext = oEvent.getSource().getBindingContext("products");
 			let oProductId = oContext.getProperty("ProductId");
