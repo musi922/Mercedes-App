@@ -15,8 +15,8 @@
         <ObjectAttribute text="This is the list of your shopping cart"></ObjectAttribute>
         </attributes>
         </ObjectHeader>
-        <List headerText="Items" mode="Delete" delete="handleDelete" items="{cart>/cartItems}" noDataText="Your Cart is Empty" enableBusyIndicator="true">
-        <StandardListItem title="{cart>Name}" icon="{cart>ProductPicUrl}" description="{cart>Description}" info="{cart>Price} {cart>CurrencyCode}"></StandardListItem>
+        <List headerText="Items" mode="Delete" delete="handleDelete" items="{cart>/getCartItems}" noDataText="Your Cart is Empty" enableBusyIndicator="true">
+        <StandardListItem title="{cart>product_ProductId/name}" icon="{cart>product_ProductId/productPicUrl}" description="{cart>product_ProductId/description}" info="{cart>product_ProductId/price} {cart>product_ProductId/currencyCode}"></StandardListItem>
         </List>
         </WizardStep>
         <WizardStep title="Payement Method" icon="sap-icon://money-bills" id="PaymentTypeStep">
@@ -33,9 +33,6 @@
         </WizardStep>
         
         </Wizard>
-        <!-- <List headerText="Products" items="{cart>/cartItems}" noDataText="Your Cart Is Empty" mode="Delete">
-        <StandardListItem title="{cart>Name}" icon="{cart>ProductPicUrl}"  description="{cart>ProductId}" counter="{cart>Price}"/>
-        </List> -->
         </content>
         </Page>
 </mvc:View>
