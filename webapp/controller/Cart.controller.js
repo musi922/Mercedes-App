@@ -39,13 +39,32 @@ sap.ui.define([
                 console.error(error);
             }
         },
-        handleDelete(oEvent) {
-            
-        },
+
+        handleDelete: async function(oEvent) {
+            try {
+                const oItem = oEvent.getParameter("listItem");
+                const oContext = oItem.getBindingContext("cart");
+                const sCartId = oContext.getProperty("CartId");
+                const sProductId = oContext.getProperty("product_ProductId/ProductId");
+        
+                const oModel = this.getView().getModel();
+                const sCartPath = `/Cart(CartId='${sCartId}')`; 
+        
+                await oModel.delete(sCartPath);
+
+        
+                await this._loadCartItems();
+        
+                MessageBox.success("Item removed from cart");
+            } catch (error) {
+                MessageBox.error("Failed to remove item from cart");
+                console.error("Delete error:", error);
+            }
+        }
+        ,
 
         onNavBack: function() {
             this.getRouter().navTo("main");
         }
-	});
-
-})
+    });
+});
