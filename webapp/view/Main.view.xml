@@ -107,6 +107,9 @@
 						<Column>
 							<Text text="Price" />
 						</Column>
+						<Column >
+						<Text text="Actions"></Text>
+						</Column>
 					</columns>
 					<items>
 						<ColumnListItem type="Navigation" press="onProductPress" class="columnList">
@@ -121,6 +124,10 @@
                         <Text text="{products>category}" />
                         <RatingIndicator value="{products>rating}" maxValue="5" />
                         <Text text="$ {products>price}" />
+						<HBox class="gap">
+						<Button icon="sap-icon://delete" ></Button>
+						<Button icon="sap-icon://edit"></Button>
+						</HBox>
 						</cells>
 						</ColumnListItem>
 					</items>
