@@ -82,6 +82,23 @@ sap.ui.define([
                     }
                 }
             });
+        },
+        onEditPress(oEvent){
+            const button = oEvent.getSource();
+            const listItem = button.getParent();
+            const oContext  = listItem.getBindingContext("products");
+            const productData = oContext.getObject();
+            this.byId("productName").setValue(productData.name);
+            this.byId("supplierName").setValue(productData.supplierName);
+            this.byId("category").setValue(productData.category);
+            this.byId("rating").setValue(productData.rating);
+            this.byId("price").setValue(productData.price);
+            this.byId("editDiolog").open();
+        },
+        onCancelDialog(){
+            this.byId("editDiolog").close();
+        },
+        onConfirmEdit(){
         }
         
         
