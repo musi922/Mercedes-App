@@ -157,9 +157,7 @@ sap.ui.define([
                 } else {
                     throw new Error(`Error: ${response.statusText}`);
                 }
-        
-                MessageBox.success("Product updated successfully.");
-            } catch (error) {
+                    } catch (error) {
                 console.error("Error updating product:", error);
                 MessageBox.error("Failed to update the product.");
             }
