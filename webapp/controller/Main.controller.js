@@ -161,6 +161,42 @@ sap.ui.define([
                 console.error("Error updating product:", error);
                 MessageBox.error("Failed to update the product.");
             }
+        },
+        onLiveSearch: function(oEvent) {
+            let query = oEvent.getParameter("newValue");
+            let list = this.byId("idProductsTable");
+            let binding = list.getBinding("items");
+            
+            let aFilters = [];
+            
+            if (query) {
+                let queryNumber = parseInt(query);
+                
+                if (!isNaN(queryNumber)) {
+                    aFilters.push(
+                        new Filter({
+                            filters: [
+                                new Filter("price", FilterOperator.EQ, queryNumber),
+                            ],
+                            and: false
+                        })
+                    );
+                } else {
+                    aFilters.push(
+                        new Filter({
+                            filters: [
+                                new Filter("category", FilterOperator.Contains, query),
+                                new Filter("ProductId", FilterOperator.Contains, query),
+                                new Filter("name", FilterOperator.Contains, query),
+                                new Filter("supplierName", FilterOperator.Contains, query),
+                            ],
+                            and: false
+                        })
+                    );
+                }
+            }
+            
+            binding.filter(aFilters);
         }
         
         

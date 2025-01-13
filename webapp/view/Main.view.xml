@@ -15,7 +15,11 @@
 					
 					<f:expandedContent>
 						<Label text="View All Products"/>
+						<ToolbarSpacer />
+						<SearchField placeholder="search Anything" width="auto" id="mainSearch" class="mainSearch" liveChange="onLiveSearch"/>
+
 					</f:expandedContent>
+					
 					<f:actions>
 						<Button
 								text="CART"
