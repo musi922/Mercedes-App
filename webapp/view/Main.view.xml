@@ -9,14 +9,16 @@
 			<f:title>
 				<f:DynamicPageTitle>
 					<f:heading>
-						<Title text="Manage Products" class="manageProduct"
-/>
+						<HBox alignItems="Center" justifyContent="SpaceBetween" class="center">
+						<Title text="Manage Products" class="manageProduct"/>
+						<ToolbarSpacer />
+						<SearchField placeholder="search Anything" width="auto" id="mainSearch" class="mainSearch" liveChange="onLiveSearch"/>
+						</HBox>
 					</f:heading>
 					
 					<f:expandedContent>
 						<Label text="View All Products"/>
-						<ToolbarSpacer />
-						<SearchField placeholder="search Anything" width="auto" id="mainSearch" class="mainSearch" liveChange="onLiveSearch"/>
+						
 
 					</f:expandedContent>
 					
