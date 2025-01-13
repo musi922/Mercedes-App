@@ -166,12 +166,14 @@ sap.ui.define([
             let query = oEvent.getParameter("newValue");
             let list = this.byId("idProductsTable");
             let binding = list.getBinding("items");
-            
+        
             let aFilters = [];
-            
+        
+            aFilters.push(new Filter("isInCart", FilterOperator.EQ, false));
+        
             if (query) {
                 let queryNumber = parseInt(query);
-                
+        
                 if (!isNaN(queryNumber)) {
                     aFilters.push(
                         new Filter({
@@ -195,9 +197,10 @@ sap.ui.define([
                     );
                 }
             }
-            
+        
             binding.filter(aFilters);
         }
+        
         
         
         
