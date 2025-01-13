@@ -83,23 +83,82 @@ sap.ui.define([
                 }
             });
         },
-        onEditPress(oEvent){
+        onEditPress: function(oEvent) {
             const button = oEvent.getSource();
             const listItem = button.getParent();
-            const oContext  = listItem.getBindingContext("products");
+            const oContext = listItem.getBindingContext("products");
             const productData = oContext.getObject();
-            this.byId("productName").setValue(productData.name);
+        
+            this._oEditContext = oContext; 
+            
             this.byId("supplierName").setValue(productData.supplierName);
             this.byId("category").setValue(productData.category);
             this.byId("rating").setValue(productData.rating);
             this.byId("price").setValue(productData.price);
-            this.byId("editDiolog").open();
+            this.byId("productId").setValue(productData.ProductId);
+            this.byId("productPicUrl").setValue(productData.productPicUrl);
+            this.byId("productName").setValue(productData.name);
+            
+           this.byId("editDiolog").open();
         },
-        onCancelDialog(){
+        onCancelDialog: function() {
             this.byId("editDiolog").close();
-        },
-        onConfirmEdit(){
         }
+        ,
+        
+        onConfirmEdit: async function() {
+            const Name = this.byId("productName").getValue();
+            const SupplierName = this.byId("supplierName").getValue();
+            const Category = this.byId("category").getValue();
+            const Rating = this.byId("rating").getValue();
+            const Price = this.byId("price").getValue();
+            const ProductId = this.byId("productId").getValue();
+            const ProductPicUrl = this.byId("productPicUrl").getValue(); 
+
+
+            
+            if (!this._oEditContext) {
+                MessageBox.error("Product context is missing. Cannot update.");
+                return;
+            }
+        
+            const oProductId = this._oEditContext.getProperty("ProductId");
+            const oModel = this.getView().getModel("products");
+        
+            try {
+                const bodyProduct = JSON.stringify({
+                    supplierName: SupplierName,
+                    category: Category,
+                    rating: Rating,
+                    price: Price,
+                    ProductId: ProductId,
+                    productPicUrl: ProductPicUrl,
+                    name: Name,
+                });
+        
+                const response = await fetch(`http://localhost:4000/odata/Products('${oProductId}')`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: bodyProduct
+                });
+        
+                if (response.ok) {
+                    this.byId("editDiolog").close();
+                    this._applyProductFilter();
+                    MessageBox.success("Product updated successfully.");
+                } else {
+                    throw new Error(`Error: ${response.statusText}`);
+                }
+        
+                MessageBox.success("Product updated successfully.");
+            } catch (error) {
+                console.error("Error updating product:", error);
+                MessageBox.error("Failed to update the product.");
+            }
+        }
+        
         
         
     });

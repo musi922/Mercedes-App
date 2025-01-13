@@ -145,8 +145,13 @@
 		<Dialog id="editDiolog">
 		<VBox >
 		<form:SimpleForm >
-		<Label text="Name"></Label>
-		<Input id="productName" placeholder="Enter the Product Name"></Input>
+		<Label text="Product Id"></Label>
+		<Input id="productId" editable="false" />
+		<Label text="Product Image"></Label>
+        <Input id="productPicUrl" editable="false" />
+		<Label text="Product Name"></Label>
+        <Input id="productName" editable="false" />
+
 		<Label text="Supplier Name"></Label>
 		<Input id="supplierName" placeholder="Enter the Product Supplier"></Input>
 		<Label text="Product Category"></Label>
