@@ -125,8 +125,8 @@
                         <RatingIndicator value="{products>rating}" maxValue="5" />
                         <Text text="$ {products>price}" />
 						<HBox class="gap">
-						<Button icon="sap-icon://delete" ></Button>
-						<Button icon="sap-icon://edit"></Button>
+						<Button icon="sap-icon://delete" press="onDeletePress"></Button>
+						<Button icon="sap-icon://edit" press=""></Button>
 						</HBox>
 						</cells>
 						</ColumnListItem>

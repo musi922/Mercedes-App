@@ -58,6 +58,32 @@ sap.ui.define([
 
         OnNavigateToCart: function() {
             this.getRouter().navTo("cart");
+        },
+        onDeletePress: function(oEvent) {
+            const oContext = oEvent.getSource().getBindingContext("products");
+            const oProductId = oContext.getProperty("ProductId");
+        
+            MessageBox.confirm("Are you sure you want to delete this product?", {
+                title: "Confirm Deletion",
+                onClose: async (sAction) => {
+                    if (sAction === MessageBox.Action.OK) {
+                        try {
+                            const oModel = this.getView().getModel("products");
+                            
+                            await oModel.delete(`/Products('${oProductId}')`);
+                            
+                            this._applyProductFilter();
+        
+                            MessageBox.success("Product deleted successfully.");
+                        } catch (error) {
+                            console.error("Error deleting product:", error);
+                            MessageBox.error("Failed to delete the product.");
+                        }
+                    }
+                }
+            });
         }
+        
+        
     });
 });
