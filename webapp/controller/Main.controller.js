@@ -88,6 +88,8 @@ sap.ui.define([
             const listItem = button.getParent();
             const oContext = listItem.getBindingContext("products");
             const productData = oContext.getObject();
+            console.log(productData);
+            
         
             this._oEditContext = oContext; 
             
@@ -98,7 +100,10 @@ sap.ui.define([
             this.byId("productId").setValue(productData.ProductId);
             this.byId("productPicUrl").setValue(productData.productPicUrl);
             this.byId("productName").setValue(productData.name);
-            
+            this.byId("availability").setValue(productData.status);
+    
+
+
            this.byId("editDiolog").open();
         },
         onCancelDialog: function() {
@@ -113,8 +118,9 @@ sap.ui.define([
             const Rating = this.byId("rating").getValue();
             const Price = this.byId("price").getValue();
             const ProductId = this.byId("productId").getValue();
-            const ProductPicUrl = this.byId("productPicUrl").getValue(); 
-
+            const ProductPicUrl = this.byId("productPicUrl").getValue();
+            const Availability = this.byId("availability").getValue();
+           
 
             
             if (!this._oEditContext) {
@@ -123,7 +129,6 @@ sap.ui.define([
             }
         
             const oProductId = this._oEditContext.getProperty("ProductId");
-            const oModel = this.getView().getModel("products");
         
             try {
                 const bodyProduct = JSON.stringify({
@@ -134,6 +139,7 @@ sap.ui.define([
                     ProductId: ProductId,
                     productPicUrl: ProductPicUrl,
                     name: Name,
+                    status: Availability
                 });
         
                 const response = await fetch(`http://localhost:4000/odata/Products('${oProductId}')`, {

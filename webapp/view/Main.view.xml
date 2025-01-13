@@ -160,6 +160,8 @@
 		<Input id="rating" placeholder="Enter the Product Rating"></Input>
 		<Label text="Price"></Label>
 		<Input id="price" placeholder="Enter the Product Price"></Input>
+		<Label text="Availabilty"></Label>
+		<Input id="availability" placeholder="Enter the Availability"></Input>
 		</form:SimpleForm>
 		</VBox>
 		<beginButton >
