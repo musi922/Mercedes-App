@@ -125,8 +125,8 @@
                         <RatingIndicator value="{products>rating}" maxValue="5" />
                         <Text text="$ {products>price}" />
 						<HBox class="gap">
-						<Button icon="sap-icon://delete" press="onDeletePress"></Button>
-						<Button icon="sap-icon://edit" press="onEditPress"></Button>
+						<Button icon="sap-icon://delete" press="onDeletePress" class="delete"></Button>
+						<Button icon="sap-icon://edit" press="onEditPress" class="edit"></Button>
 						</HBox>
 						</cells>
 						</ColumnListItem>
@@ -157,7 +157,7 @@
 		<Label text="Product Category"></Label>
 		<Input id="category" placeholder="Enter the Product Category"></Input>
 		<Label text="Rating"></Label>
-		<Input id="rating" placeholder="Enter the Product Rating"></Input>
+		<Input id="rating" placeholder="Enter the Product Rating" name="rating"></Input>
 		<Label text="Price"></Label>
 		<Input id="price" placeholder="Enter the Product Price"></Input>
 		<Label text="Availabilty"></Label>

@@ -22,7 +22,7 @@
                             class="sapUiTinyMarginEnd"
                         />
                         <Title
-                            text="{name}"
+                            text="Product Details"
                             wrapping="true"
                             class="detailsProduct"
                         />
